@@ -61,7 +61,7 @@ $card = mysqli_fetch_assoc($result);
                     </select>
                     <div class=" d-flex gap-3">
                         
-                        <input type="number" class="form-control rounded-0" name="quantity" id="quantity" min="1" value="1" style="width:3rem;height:3rem;">
+                        <input type="number" max="8" class="form-control rounded-0" name="quantity" id="quantity" min="1" value="1" style="width:3rem;height:3rem;">
                         <button type="submit" onclick="cart('<?php echo $id;?>')" class="btn btn-dark d-flex align-items-center justify-content-center rounded-5" id="add_cart" style="width:8rem;" ><b>Add to cart</b></button>
                     
                     </div>

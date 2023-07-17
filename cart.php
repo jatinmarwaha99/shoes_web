@@ -1,5 +1,15 @@
-<!-- composer require phpmailer/phpmailer -->
 <?php require('conn.php'); ?>
+<?php 
+if(isset($_POST['checkout'])){
+if(!isset($_SESSION['email-login'])){
+  $er="Login first";
+}else{
+  $er1="You have successfully ordered";
+} 
+}
+
+  ?>
+<!-- composer require phpmailer/phpmailer -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,10 +19,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cart</title>
   <?php require('.\constants\head.php') ?>
+  <style>
+    .added-user{
+    height: 10rem;
+    width: 15rem;
+    background-color:grey;
+    color: black;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}
+  </style>
 </head>
-
 <body>
-  <?php require('.\constants\navbar.php') ?>
+  <?php require('.\constants\navbar.php');?>
+  <?php if(isset($er)){?>
+    <div class="added-user">
+      <div class="inner-ad w-100 h-100 d-flex flex-column gap-3 justify-content-center align-items-center">
+        <p class="py-3"><?php
+            echo $er;
+            ?></p>
+            <button class="btn btn-danger w-50" onclick="login()">login</button>
+      </div>
+    </div><?php }?>
+    <?php if(isset($er1)){?>
+    <div class="added-user">
+    <div class="inner-ad w-100 h-100 d-flex flex-column gap-3 justify-content-center align-items-center">
+        <p class="py-3"><?php
+            echo $er1;
+            ?></p>
+            <button class="btn btn-danger w-50" onclick="process()">Ok</button>
+    </div>
+    </div><?php }?>
   <div class="container mt-5">
     <table class="table">
       <thead>
@@ -95,7 +136,9 @@
             </tr>
           </tbody>
         </table>
-        <button class="btn btn-dark rounded-5 w-50"><b>Proceed To Checkout</b></button>
+        <form action="cart.php" method="post">
+        <button type="submit"  <?php if(is_null($row)){echo"disabled";}?> class="btn btn-dark rounded-5 w-50" name="checkout"><b>Proceed To Checkout</b></button>
+        </form>
         </div>
         </div>
       </div>
@@ -108,6 +151,16 @@
     cart.classList.add('active-link');
     const cart_icon = document.querySelector('#cart-icon');
     cart_icon.style.color = "red";
+    function login(){
+      document.querySelector('.added-user').style.display="none";
+      window.location="login.php";
+      
+    }
+    function process(){
+      document.querySelector('.added-user').style.display="none";
+      window.location="buy.php";
+      
+    }
   </script>
   <?php require('.\constants\script.php') ?>
 </body>

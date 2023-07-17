@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar</title>
-    <?php require('head.php')?>
+    <?php require('../constants/head.php')?>
     <style>
-        .right img{
+         img{
             width: 120px;
         }
         nav{
@@ -41,20 +41,17 @@
 <body>
     <nav class="navbar">
         <div class="container">
-        <div class="right">
-            <img src=".\images\logo.jpg" alt="logo">
-        </div>
+        <img src="https://feet-first-ecommerce.netlify.app/assets/logo.jpg" alt="logo">
         <ul class="navbar-nav d-flex flex-row gap-5">
-            <li class="nav-item "><a id="home-nav" href="./index.php" class= "nav-link active-link">Home</a></li>
-            <li  class="nav-item"><a id="shop-nav" href="./shop.php"  class=" nav-link">Shop</a></li>
-            <li class="nav-item"><a href="#"  id="contact-nav" class=" nav-link">Contact</a></li>
-            <li  class="nav-item"><a id="register-nav" href="./sign-up.php"  class=" nav-link">Register</a></li>
-            <li  class="nav-item"><a id="login-nav" href="./login.php"  class=" nav-link">Login</a></li>
-            <li id="cart" class="nav-item d-flex" style="align-items: center;"><a href="./cart.php"><i id="cart-icon" class="fa-solid fa-bag-shopping"style="font-size:25px;color:black;"></i></a></li>
+            <li class="nav-item"><a  id="home-nav" href="data-entry.php" class= "nav-link active-link">Home</a></li>
+            <li  class="nav-item"><a  id="Data-Entries" href="entry.php"  class="nav-link">Entries</a></li>
+            <li class="nav-item"><a href="customers.php"  id="customers" class="nav-link">Customers</a></li>
+            <li  class="nav-item"><a id="inventory" href=""  class="nav-link">Inventory</a></li>
+            <li  class="nav-item"><a  id="sales" href="sales.php"  class=" nav-link">Sales</a></li>
+            <li  class="nav-item d-flex" style="align-items: center;"><a href="logout.php"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #cc1c0f;font-size: 25px;"></i></a></li>
         </ul>
         </div>
     </nav>
-
-    <?php require('script.php')?>
+    <?php require('../constants/script.php')?>
 </body>
 </html>
